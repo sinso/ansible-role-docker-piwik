@@ -1,0 +1,26 @@
+---
+ssmtp_root: ""
+ssmtp_mailhub: ""
+ssmtp_hostname: ""
+
+
+pull_docker_images: 'no'
+create_backup: 'no'
+force_update : 'no'
+
+data_root_folder: /opt/
+instance_data_root_folder: "{{ data_root_folder }}{{ instance }}/data/"
+
+backup_root_folder: /backups/
+instance_backup_root_folder: "{{ backup_root_folder }}{{ instance }}/{{ ansible_date_time.iso8601 | replace(':', '-') }}/"
+
+instance_ca_certificates_folder: "{{ data_root_folder}}ca-certificates/"
+
+docker_images:
+  'web': 'sinso/piwik'
+  'db': 'sinso/mariadb'
+
+new_instance_vars_hash: "{{ lookup('md5hash', 'instance_vars/' + instance + '.yml') }}"
+
+domain_list: "{{ domains|join(',') }}"
+

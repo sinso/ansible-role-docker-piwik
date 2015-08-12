@@ -1,0 +1,12 @@
+---
+- name: "{{ instance }}: ensure web container is {{ state }}"
+  docker:
+    name: "{{ instance }}-web"
+    image: "{{ docker_images.web }}:{{ docker_containers.web.image_tag }}"
+    state: "{{ state }}"
+    restart_policy: always
+    env:
+      VIRTUAL_HOST: "{{ domain_list }}"
+    links:
+      - "{{ instance }}-db:db"
+  when: docker_containers.web is defined

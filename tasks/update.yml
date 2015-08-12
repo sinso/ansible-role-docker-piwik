@@ -1,0 +1,29 @@
+---
+#
+# Ensure the application source is as defined in source_url and source_ref
+# stop and start containers if necessery
+# update docker images
+# create backups before updating
+#
+# Parameters:
+# - create_backup=yes : create backups before updating, default: no
+# - pull_docker_images=yes : update docker images, default: no
+#
+
+- include: pull_docker_images.yml
+  when: pull_docker_images == 'yes'
+
+- include: prepare_backup.yml
+  when: create_backup == 'yes'
+
+- include: stop.yml
+
+- include: backup.yml
+  when: create_backup == 'yes'
+
+- include: start.yml
+
+- include: finish_backup.yml
+  when: create_backup == 'yes'
+
+- include: save_instance_vars_hash.yml
