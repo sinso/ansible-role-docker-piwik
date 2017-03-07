@@ -20,7 +20,5 @@ docker_images:
   'web': 'sinso/piwik'
   'db': 'sinso/mariadb'
 
-new_instance_vars_hash: "{{ lookup('md5hash', 'instances/' + instance + '/' + sinso_env + '/vars.yml') }}"
-
 domain_list: "{{ domains|join(',') }}"
 
