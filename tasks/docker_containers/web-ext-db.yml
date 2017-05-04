@@ -1,8 +1,8 @@
 ---
-- name: "{{ instance }}: ensure web-ext-db container is {{ state }}"
+- name: "{{ instance }}: ensure web_ext_db container is {{ state }}"
   docker:
     name: "{{ instance }}"
-    image: "{{ docker_images.web-ext-db }}:{{ docker_containers.web-ext-db.image_tag }}"
+    image: "{{ docker_images.web }}:{{ docker_containers.web_ext_db.image_tag }}"
     state: "{{ state }}"
     restart_policy: always
     env:
@@ -11,4 +11,4 @@
       DB_ENV_MYSQL_DATABASE: "{{ db_env_mysql_database  }}"
       DB_ENV_MYSQL_USER: "{{ db_env_mysql_user  }}"
       DB_ENV_MYSQL_PASSWORD: "{{ db_env_mysql_password  }}"
-  when: docker_containers.web-ext-db is defined
+  when: docker_containers.web_ext_db is defined
