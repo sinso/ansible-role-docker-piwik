@@ -3,6 +3,10 @@ ssmtp_root: ""
 ssmtp_mailhub: ""
 ssmtp_hostname: ""
 
+db_env_mysql_host: ""
+db_env_mysql_database: ""
+db_env_mysql_user: ""
+db_env_mysql_password: ""
 
 pull_docker_images: 'no'
 create_backup: 'no'
