@@ -5,3 +5,4 @@
 
 - include: docker_containers/web.yml state=stopped
 - include: docker_containers/db.yml state=stopped
+- include: docker_containers/web-ext-db.yml state=stopped

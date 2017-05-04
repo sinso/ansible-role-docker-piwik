@@ -5,3 +5,4 @@
 
 - include: docker_containers/db.yml state=started
 - include: docker_containers/web.yml state=started
+- include: docker_containers/web-ext-db.yml state=started
