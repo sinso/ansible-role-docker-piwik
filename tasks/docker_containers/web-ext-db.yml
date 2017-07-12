@@ -11,4 +11,6 @@
       DB_ENV_MYSQL_DATABASE: "{{ db_env_mysql_database  }}"
       DB_ENV_MYSQL_USER: "{{ db_env_mysql_user  }}"
       DB_ENV_MYSQL_PASSWORD: "{{ db_env_mysql_password  }}"
+    volumes:
+      - "{{ instance_data_root_folder }}log/piwik:/opt/solr/server/logs"
   when: docker_containers.web_ext_db is defined
