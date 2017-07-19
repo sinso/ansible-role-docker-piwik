@@ -2,7 +2,7 @@
 ssmtp_root: ""
 ssmtp_mailhub: ""
 ssmtp_hostname: ""
-
+piwik_tables_prefix: ""
 
 pull_docker_images: 'no'
 create_backup: 'no'
@@ -23,4 +23,3 @@ docker_images:
 new_instance_vars_hash: "{{ lookup('md5hash', 'instance_vars/' + instance + '.yml') }}"
 
 domain_list: "{{ domains|join(',') }}"
-
