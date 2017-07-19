@@ -7,6 +7,7 @@
     restart_policy: always
     env:
       VIRTUAL_HOST: "{{ domain_list }}"
+      PIWIK_TABLES_PREFIX: "{{ piwik_tables_prefix }}"
     links:
       - "{{ instance }}-db:db"
   when: docker_containers.web is defined

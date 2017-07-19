@@ -2,6 +2,7 @@
 ssmtp_root: ""
 ssmtp_mailhub: ""
 ssmtp_hostname: ""
+piwik_tables_prefix: ""
 
 db_env_mysql_host: ""
 db_env_mysql_database: ""
